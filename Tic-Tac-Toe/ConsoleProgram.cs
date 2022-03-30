@@ -24,20 +24,28 @@ namespace ConsoleProgram
 
             MakeNextMoveResponse nextMove;
 
+            Printer printer;
+
             if (board.FirstMove == "You (X)")
             {
-                Console.WriteLine("you start");
+                //Console.WriteLine("you start");
+                PlayerStartsOutput output = new PlayerStartsOutput();
+                printer = new Printer(output);
             }
             else
             {
-                Console.WriteLine("machine starts");
+                //Console.WriteLine("machine starts");
+                MachineStartsOutput output = new MachineStartsOutput();
+                printer = new Printer(output);
             }
+
+            printer.printFirstMove();
 
             Console.WriteLine(boardString);
 
             while (doWhile)
             {
-                Console.WriteLine("enter your move:");
+                printer.printEnterMove();
                 input = Convert.ToInt16(Console.ReadLine());
                 //checkas inputo
                 nextMove = await API.MakeNextMove(game.BoardId, input);
@@ -48,7 +56,6 @@ namespace ConsoleProgram
                     Console.WriteLine(nextMove.Result);
                     doWhile = false;
                 }
-
             }
         }
     }
