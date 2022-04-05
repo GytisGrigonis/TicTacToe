@@ -11,7 +11,7 @@ namespace Tic_Tac_Toe.Entities
 
         public TicTacToe(HttpClient httpClient)
         {
-            this.client = httpClient;
+            client = httpClient;
             errorMessage = new ErrorMessage();
         }
 

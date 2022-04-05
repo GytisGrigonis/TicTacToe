@@ -82,9 +82,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Gytis\\source\\repos\\Tic-Tac-Toe\\Tic-Tac-Toe\\Tic-Tac-Toe.csproj",
-      "projectName": "Tic-Tac-Toe",
-      "projectPath": "C:\\Users\\Gytis\\source\\repos\\Tic-Tac-Toe\\Tic-Tac-Toe\\Tic-Tac-Toe.csproj",
+      "projectUniqueName": "C:\\Users\\Gytis\\source\\repos\\Tic-Tac-Toe\\Tic-Tac-Toe\\TicTacToe.csproj",
+      "projectName": "TicTacToe",
+      "projectPath": "C:\\Users\\Gytis\\source\\repos\\Tic-Tac-Toe\\Tic-Tac-Toe\\TicTacToe.csproj",
       "packagesPath": "C:\\Users\\Gytis\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Gytis\\source\\repos\\Tic-Tac-Toe\\Tic-Tac-Toe\\obj\\",
       "projectStyle": "PackageReference",
