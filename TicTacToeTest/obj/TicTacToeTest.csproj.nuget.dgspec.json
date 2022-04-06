@@ -126,9 +126,17 @@
               "target": "Package",
               "version": "[16.11.0, )"
             },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.17.2, )"
+            },
             "coverlet.collector": {
               "target": "Package",
               "version": "[3.1.0, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.4.1, )"
             }
           },
           "imports": [

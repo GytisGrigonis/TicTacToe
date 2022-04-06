@@ -17,7 +17,7 @@ namespace ConsoleProgram
 
             TicTacToe API = new TicTacToe(httpClient);
 
-            CreateGameResponse game = await API.CreateGameAsync(Difficulty.Easy);
+            CreateGameResponse game = await API.CreateGameResponse(Difficulty.Easy);
 
             BoardResponse board = await API.BoardAsync(game.BoardId);
 

@@ -8,6 +8,7 @@ namespace Tic_Tac_Toe.Entities
         private HttpClient client;
         private bool lastCallSuccessful { get; set; }
         private ErrorMessage errorMessage;
+        private const string createGameString = "tictactoe/game?difficulty={0}";
 
         public TicTacToe(HttpClient httpClient)
         {
@@ -15,29 +16,26 @@ namespace Tic_Tac_Toe.Entities
             errorMessage = new ErrorMessage();
         }
 
-        public async Task<CreateGameResponse> CreateGameAsync(Difficulty difficulty)
+        public async Task<string> Post(string URL)
         {
-            string URL = $"tictactoe/game?difficulty={difficulty}";
-
             HttpResponseMessage httpResponse = await client.PostAsync(URL, null);
-
-            lastCallSuccessful = httpResponse.IsSuccessStatusCode;
 
             var responseString = await httpResponse.Content.ReadAsStringAsync();
 
-            if (lastCallSuccessful)
-            {
-                CreateGameResponse response = new CreateGameResponse();
+            return responseString;
+        }
 
-                response = JsonConvert.DeserializeObject<CreateGameResponse>(responseString);
+        public async Task<CreateGameResponse> CreateGameResponse(Difficulty difficulty)
+        {
+            string URL = String.Format(createGameString, difficulty);
 
-                return response;
-            }
-            else
-            {
-                errorMessage = JsonConvert.DeserializeObject<ErrorMessage>(responseString);
-                return null;
-            }
+            CreateGameResponse? createGameResponse = new CreateGameResponse();
+
+            var response = await Post(URL);
+
+            createGameResponse = JsonConvert.DeserializeObject<CreateGameResponse>(response);
+
+            return createGameResponse;
         }
 
         public async Task<MakeNextMoveResponse> MakeNextMove(string boardId, int index)
